@@ -9,50 +9,393 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/_app'
+import { Route as AppIndexRouteImport } from './routes/_app.index'
+import { Route as AppAiRouteImport } from './routes/_app.ai'
+import { Route as AppAiActivityRouteImport } from './routes/_app.ai-activity'
+import { Route as AppAnalyticsRouteImport } from './routes/_app.analytics'
+import { Route as AppAutomationsRouteImport } from './routes/_app.automations'
+import { Route as AppCalendarRouteImport } from './routes/_app.calendar'
+import { Route as AppCommunicationsRouteImport } from './routes/_app.communications'
+import { Route as AppFormsRouteImport } from './routes/_app.forms'
+import { Route as AppIntegrationsRouteImport } from './routes/_app.integrations'
+import { Route as AppPipelineRouteImport } from './routes/_app.pipeline'
+import { Route as AppSettingsRouteImport } from './routes/_app.settings'
+import { Route as AppTasksRouteImport } from './routes/_app.tasks'
+import { Route as AppTeamRouteImport } from './routes/_app.team'
+import { Route as AppCompaniesIndexRouteImport } from './routes/_app.companies.index'
+import { Route as AppProspectsIndexRouteImport } from './routes/_app.prospects.index'
+import { Route as AppProspectsIdRouteImport } from './routes/_app.prospects.$id'
 
-const IndexRoute = IndexRouteImport.update({
+const AppRoute = AppRouteImport.update({
+  id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAiRoute = AppAiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAiActivityRoute = AppAiActivityRouteImport.update({
+  id: '/ai-activity',
+  path: '/ai-activity',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAnalyticsRoute = AppAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAutomationsRoute = AppAutomationsRouteImport.update({
+  id: '/automations',
+  path: '/automations',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCalendarRoute = AppCalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCommunicationsRoute = AppCommunicationsRouteImport.update({
+  id: '/communications',
+  path: '/communications',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFormsRoute = AppFormsRouteImport.update({
+  id: '/forms',
+  path: '/forms',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppIntegrationsRoute = AppIntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPipelineRoute = AppPipelineRouteImport.update({
+  id: '/pipeline',
+  path: '/pipeline',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTasksRoute = AppTasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTeamRoute = AppTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCompaniesIndexRoute = AppCompaniesIndexRouteImport.update({
+  id: '/companies/',
+  path: '/companies/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProspectsIndexRoute = AppProspectsIndexRouteImport.update({
+  id: '/prospects/',
+  path: '/prospects/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProspectsIdRoute = AppProspectsIdRouteImport.update({
+  id: '/prospects/$id',
+  path: '/prospects/$id',
+  getParentRoute: () => AppRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/': typeof AppIndexRoute
+  '/ai': typeof AppAiRoute
+  '/ai-activity': typeof AppAiActivityRoute
+  '/analytics': typeof AppAnalyticsRoute
+  '/automations': typeof AppAutomationsRoute
+  '/calendar': typeof AppCalendarRoute
+  '/communications': typeof AppCommunicationsRoute
+  '/forms': typeof AppFormsRoute
+  '/integrations': typeof AppIntegrationsRoute
+  '/pipeline': typeof AppPipelineRoute
+  '/settings': typeof AppSettingsRoute
+  '/tasks': typeof AppTasksRoute
+  '/team': typeof AppTeamRoute
+  '/prospects/$id': typeof AppProspectsIdRoute
+  '/companies/': typeof AppCompaniesIndexRoute
+  '/prospects/': typeof AppProspectsIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/ai': typeof AppAiRoute
+  '/ai-activity': typeof AppAiActivityRoute
+  '/analytics': typeof AppAnalyticsRoute
+  '/automations': typeof AppAutomationsRoute
+  '/calendar': typeof AppCalendarRoute
+  '/communications': typeof AppCommunicationsRoute
+  '/forms': typeof AppFormsRoute
+  '/integrations': typeof AppIntegrationsRoute
+  '/pipeline': typeof AppPipelineRoute
+  '/settings': typeof AppSettingsRoute
+  '/tasks': typeof AppTasksRoute
+  '/team': typeof AppTeamRoute
+  '/': typeof AppIndexRoute
+  '/prospects/$id': typeof AppProspectsIdRoute
+  '/companies': typeof AppCompaniesIndexRoute
+  '/prospects': typeof AppProspectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_app': typeof AppRouteWithChildren
+  '/_app/ai': typeof AppAiRoute
+  '/_app/ai-activity': typeof AppAiActivityRoute
+  '/_app/analytics': typeof AppAnalyticsRoute
+  '/_app/automations': typeof AppAutomationsRoute
+  '/_app/calendar': typeof AppCalendarRoute
+  '/_app/communications': typeof AppCommunicationsRoute
+  '/_app/forms': typeof AppFormsRoute
+  '/_app/integrations': typeof AppIntegrationsRoute
+  '/_app/pipeline': typeof AppPipelineRoute
+  '/_app/settings': typeof AppSettingsRoute
+  '/_app/tasks': typeof AppTasksRoute
+  '/_app/team': typeof AppTeamRoute
+  '/_app/': typeof AppIndexRoute
+  '/_app/prospects/$id': typeof AppProspectsIdRoute
+  '/_app/companies/': typeof AppCompaniesIndexRoute
+  '/_app/prospects/': typeof AppProspectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ai'
+    | '/ai-activity'
+    | '/analytics'
+    | '/automations'
+    | '/calendar'
+    | '/communications'
+    | '/forms'
+    | '/integrations'
+    | '/pipeline'
+    | '/settings'
+    | '/tasks'
+    | '/team'
+    | '/prospects/$id'
+    | '/companies/'
+    | '/prospects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/ai'
+    | '/ai-activity'
+    | '/analytics'
+    | '/automations'
+    | '/calendar'
+    | '/communications'
+    | '/forms'
+    | '/integrations'
+    | '/pipeline'
+    | '/settings'
+    | '/tasks'
+    | '/team'
+    | '/'
+    | '/prospects/$id'
+    | '/companies'
+    | '/prospects'
+  id:
+    | '__root__'
+    | '/_app'
+    | '/_app/ai'
+    | '/_app/ai-activity'
+    | '/_app/analytics'
+    | '/_app/automations'
+    | '/_app/calendar'
+    | '/_app/communications'
+    | '/_app/forms'
+    | '/_app/integrations'
+    | '/_app/pipeline'
+    | '/_app/settings'
+    | '/_app/tasks'
+    | '/_app/team'
+    | '/_app/'
+    | '/_app/prospects/$id'
+    | '/_app/companies/'
+    | '/_app/prospects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
+    '/_app': {
+      id: '/_app'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_app/': {
+      id: '/_app/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/ai': {
+      id: '/_app/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AppAiRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/ai-activity': {
+      id: '/_app/ai-activity'
+      path: '/ai-activity'
+      fullPath: '/ai-activity'
+      preLoaderRoute: typeof AppAiActivityRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/analytics': {
+      id: '/_app/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AppAnalyticsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/automations': {
+      id: '/_app/automations'
+      path: '/automations'
+      fullPath: '/automations'
+      preLoaderRoute: typeof AppAutomationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/calendar': {
+      id: '/_app/calendar'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof AppCalendarRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/communications': {
+      id: '/_app/communications'
+      path: '/communications'
+      fullPath: '/communications'
+      preLoaderRoute: typeof AppCommunicationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/forms': {
+      id: '/_app/forms'
+      path: '/forms'
+      fullPath: '/forms'
+      preLoaderRoute: typeof AppFormsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/integrations': {
+      id: '/_app/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof AppIntegrationsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/pipeline': {
+      id: '/_app/pipeline'
+      path: '/pipeline'
+      fullPath: '/pipeline'
+      preLoaderRoute: typeof AppPipelineRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/settings': {
+      id: '/_app/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/tasks': {
+      id: '/_app/tasks'
+      path: '/tasks'
+      fullPath: '/tasks'
+      preLoaderRoute: typeof AppTasksRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/team': {
+      id: '/_app/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof AppTeamRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/companies/': {
+      id: '/_app/companies/'
+      path: '/companies'
+      fullPath: '/companies/'
+      preLoaderRoute: typeof AppCompaniesIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/prospects/': {
+      id: '/_app/prospects/'
+      path: '/prospects'
+      fullPath: '/prospects/'
+      preLoaderRoute: typeof AppProspectsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/_app/prospects/$id': {
+      id: '/_app/prospects/$id'
+      path: '/prospects/$id'
+      fullPath: '/prospects/$id'
+      preLoaderRoute: typeof AppProspectsIdRouteImport
+      parentRoute: typeof AppRoute
     }
   }
 }
 
+interface AppRouteChildren {
+  AppAiRoute: typeof AppAiRoute
+  AppAiActivityRoute: typeof AppAiActivityRoute
+  AppAnalyticsRoute: typeof AppAnalyticsRoute
+  AppAutomationsRoute: typeof AppAutomationsRoute
+  AppCalendarRoute: typeof AppCalendarRoute
+  AppCommunicationsRoute: typeof AppCommunicationsRoute
+  AppFormsRoute: typeof AppFormsRoute
+  AppIntegrationsRoute: typeof AppIntegrationsRoute
+  AppPipelineRoute: typeof AppPipelineRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppTasksRoute: typeof AppTasksRoute
+  AppTeamRoute: typeof AppTeamRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppProspectsIdRoute: typeof AppProspectsIdRoute
+  AppCompaniesIndexRoute: typeof AppCompaniesIndexRoute
+  AppProspectsIndexRoute: typeof AppProspectsIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAiRoute: AppAiRoute,
+  AppAiActivityRoute: AppAiActivityRoute,
+  AppAnalyticsRoute: AppAnalyticsRoute,
+  AppAutomationsRoute: AppAutomationsRoute,
+  AppCalendarRoute: AppCalendarRoute,
+  AppCommunicationsRoute: AppCommunicationsRoute,
+  AppFormsRoute: AppFormsRoute,
+  AppIntegrationsRoute: AppIntegrationsRoute,
+  AppPipelineRoute: AppPipelineRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppTasksRoute: AppTasksRoute,
+  AppTeamRoute: AppTeamRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppProspectsIdRoute: AppProspectsIdRoute,
+  AppCompaniesIndexRoute: AppCompaniesIndexRoute,
+  AppProspectsIndexRoute: AppProspectsIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

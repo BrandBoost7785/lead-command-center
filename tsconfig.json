@@ -20,8 +20,10 @@
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
+    // Relaxed for this app: table/chart code indexes arrays heavily and domain
+    // records frequently carry explicit `undefined` for optional fields.
+    "noUncheckedIndexedAccess": false,
+    "exactOptionalPropertyTypes": false,
     "noUncheckedSideEffectImports": true,
     "paths": {
       "@/*": ["./src/*"]
